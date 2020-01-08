@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `hotel_erp`
 --
-CREATE DATABASE IF NOT EXISTS hotel_erp`;
-USE hotel_erp;
+CREATE DATABASE IF NOT EXISTS `hotel_erp`;
+USE `hotel_erp`;
 -- --------------------------------------------------------
 
 --

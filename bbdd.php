@@ -61,5 +61,3 @@ function producto($ident){
     return $result;
     
 }
-
-?>

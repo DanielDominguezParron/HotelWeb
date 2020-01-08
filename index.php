@@ -1,46 +1,112 @@
-<?php include "carrito.php";?>
-<?php include "bbdd.php";
+<!DOCTYPE html>
+<html lang="es">
 
-$habitaciones = recogeDatos();
-include 'cabecera.php';
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="Login/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Loginvendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Login/css/main.css">
+	<!--===============================================================================================-->
+</head>
 
-?>
-	<link href="./CSS/estilos.css" rel="stylesheet" type="text/css">
-    <br>
-    <?php if($mensaje!=""){?>
-    <div class="alert alert-success">
-    <?php echo $mensaje;?>
-        <a href="mostrarcarrito.php" class="badge badge-success">Ver reservas</a>
-    </div>
-        <?php }?>
-	<div class="container d-flex justify-content-center">
-    <div class="row">
+<body>
 
-    <?php if($habitaciones->num_rows > 0){
-        while($row= $habitaciones->fetch_assoc()){
-            $img = $row['Photo'];
-            $descr = $row['Description'];
-            $id= $row['Id'];
-            $nombre= $row['Name'];
-            $precio= $row['Price'];
-			
-            echo ("<div class='cajas card'><a href='./Producto.php?id=$id'><img class='card-img-top' onclick='agranda(this)' src='$img'alt=Card image cap'></a><div class='card-body'><h5 class='card-title'> $nombre</h5><p>$descr</p>
-                    <form action='' method='post'>
-                      <input type='hidden' name='id' id='id' value='$id'><br>
-                      <input type='hidden' name='nombre' id='nombre' value='$nombre'><br>
-                      <input type='hidden' name='precio' id='precio' value='$precio'><br>
-                      <input type='hidden' name='cantidad' id='cantidad' value='1'>
-                      <button  class='btn btn-primary' name='btnAccion' value='Agregar' type='submit'>Reservar habitacion</button>
-                    </form>
-                    <a href='./Producto.php?id=$id' class='btn btn-primary'>Ver Mas</a></div></div>");
-        }
-    }
-    else{
-        echo ("No tenemos habitaciones de esta categoria");
-    }
-    ?>
+	<?php
+	session_start();
 
-    </div>
+	if (isset($_SESSION['nombre'])) {
+		header("Location: calendar.php");
+	}
+
+	?>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('Login/images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Account Login
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5" action='login.php' method='post'>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<input class="input100" type="text" name="nombre" placeholder="User name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="contra" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
 	</div>
-    </div>
-</div>
+
+
+
+
+	<?php
+
+	$arrErrores = [
+		"noform" 		=> "No se ha enviado el formulario",
+		"notOk"			=> "Usuario o contraseña incorrectos",
+		"notSession"	=> "Sesión no iniciada",
+		"logout"		=> "Sesión cerrada",
+	];
+
+	if (isset($_GET["error"])) {
+		$claveError = $_GET['error'];
+		if (isset($arrErrores[$claveError])) {
+			echo "<h2>$arrErrores[$claveError]</h2>";
+		} else {
+			echo "<h2>Error desconocido</h2>";
+		}
+	}
+
+	?>
+	<!--===============================================================================================-->
+	<script src="Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="Login/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="Login/vendor/bootstrap/js/popper.js"></script>
+	<script src="Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="Login/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="Login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="Login/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="Login/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="Login/js/main.js"></script>
+</body>
+
+</html>

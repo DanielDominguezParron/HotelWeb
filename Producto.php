@@ -19,7 +19,7 @@
 	  <?php if($mensaje!=""){?>
     	<div class="alert alert-success">
       <?php echo $mensaje;?>
-        <a href="mostrarcarrito.php" class="badge badge-success">Ver carrito</a>
+        <a href="reservas.php" class="badge badge-success">Ver carrito</a>
     		</div>
       <?php }?>
 <html lang="es">
@@ -52,7 +52,7 @@
            echo "<div class='p-2 text-center'><h1> $nombre</h1>";
            echo "<img src='$img' alt='$nombre'></div>";
 		   echo "<div class='p-2'><h1 class='text-center'>$categoria</h1></br>$descrS</br></br> $descr</div><div class='d-flex flex-row'>
-		  <div class='p-2'><button  class='btn btn-light'><a  href='./index.php'>Volver</a></button></div>
+		  <div class='p-2'><button  class='btn btn-light'><a  href='./habitaciones.php'>Volver</a></button></div>
 	  </div>";
         }
 
