@@ -9,7 +9,7 @@ if(isset($_POST["nombre"]) && isset($_POST["contra"]) ){
 	$nomUsu = $_POST["nombre"];
     $contra = $_POST["contra"];
     $con=conecta();
-    $query= "Select * from usuarios where Nombre='$nomUsu' && Pass='$contra' ";  
+    $query= "Select * from trabajadores where Name='$nomUsu' && Password='$contra' ";  
     echo  $nomUsu;
     echo "</br>";
     echo  $contra;

@@ -12,7 +12,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
-    <title>Pcore !</title>
+    <title>Hotelux</title>
 </head>
 <body>
 <div class="wrapper">
@@ -23,8 +23,16 @@
         </div>
 
         <ul class="list-unstyled components">
+        <?php
+        if (isset($_SESSION["nombre"])){
+            print "<p>Bienvenido, $_SESSION[nombre]</p>";
+        }
+?>
             <li>
-                <a href="inicio.php">Iniciar sesion</a>
+                <a href="LoginUI.php">Iniciar sesion</a>
+            </li>
+            <li>
+                <a href="calendar.php">Calendario</a>
             </li>
             <li>
                 <a href="mostrarcarrito.php">Reservas</a>

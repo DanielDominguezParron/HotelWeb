@@ -4,14 +4,14 @@ include 'cabecera.php';
 ?>
 <br>
 
-<h3>Lista del carrito</h3>
+<h3>Lista de habitaciones reservadas</h3>
 
 <?php	
 if(isset($_SESSION['nombre'])){
    $cliente= $_SESSION['nombre'];
 }
-if (isset($_SESSION['Carrito'])){
-if ($_SESSION['Carrito']!=null){?>
+if (isset($_SESSION['carrito'])){
+if ($_SESSION['carrito']!=null){?>
 
  <table class="table table-light table-bordered">
     <tbody>
@@ -25,7 +25,7 @@ if ($_SESSION['Carrito']!=null){?>
         <?php $total=0; 
         $arrProductos=array();
         ?>
-        <?php foreach ($_SESSION['Carrito'] as $producto) {?>
+        <?php foreach ($_SESSION['carrito'] as $producto) {?>
         <tr>
         <?php
             $arrProductos[]=$producto['Nombre'];
@@ -55,11 +55,11 @@ $productoss = implode(",", $arrProductos);
 if(isset($_SESSION['nombre'])){
     $cliente= $_SESSION['nombre'];
  ?>
-<form action="compra.php" method="post">
+<form action="carrito.php" method="post">
     <input type='hidden' name='cliente' id='cliente' value="<?php echo $cliente?>"><br>
     <input type='hidden' name='nombre' id='Nombre' value="<?php echo $productoss?>"><br>
     <input type='hidden' name='precio' id='precio' value="<?php echo $total?>"><br>
-    <button class="btn btn-success" name="btnCompra" value="Comprar"  type="submit">Comprar</button>
+    <button class="btn btn-success" name="btnCompra" value="Comprar"  type="submit">Reservar</button>
 </form>
 <?php
 }
@@ -69,7 +69,7 @@ if(isset($_SESSION['nombre'])){
 ?>
 
     <div class="alert alert-success">
-    No hay productos
+    No hay reservas
 </div>
     
 

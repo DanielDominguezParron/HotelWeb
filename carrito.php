@@ -47,7 +47,7 @@ if (isset($_POST['btnAccion'])){
                 'Precio' => $Precio
             );
             $_SESSION['Carrito'][0] = $producto;
-            $mensaje="Producto agregado al carrito";
+            $mensaje="Habitacion reservada correctamente";
         } else {
             $idProductos=array_column($_SESSION['Carrito'],"id");
             if (in_array($ID,$idProductos)) {
@@ -55,13 +55,10 @@ if (isset($_POST['btnAccion'])){
                 
                 $key = array_search($ID,$idProductos);
                 $producto = $_SESSION['Carrito'][$key]['Nombre'];
-                echo "<script>alert('$producto')</script>";
-               
-
                 $cantidad =intval($_SESSION['Carrito'][$key]['Cantidad'])+1;
                 $_SESSION['Carrito'][$key]['Cantidad']= strval($cantidad);
 
-                $mensaje = "Producto agregado al carrito";
+                $mensaje = "Habitacion reservada correctamente";
                 
             } else {
 
@@ -73,7 +70,7 @@ if (isset($_POST['btnAccion'])){
                 'Precio' => $Precio
             );
             $_SESSION['Carrito'][$NumeroProductos] = $producto;
-            $mensaje = "Producto agregado al carrito";
+            $mensaje = "Habitacion reservada correctamente";
         }
         }
     // $mensaje=print_r($_SESSION,true);

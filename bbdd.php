@@ -5,7 +5,7 @@ function conecta(){
     $servername = "localhost";
     $user = "root";
     $password = "";
-    $dbname = "pcore";
+    $dbname = "hotel_erp";
     $conn = new mysqli($servername, $user,$password,$dbname);
     // Check connection
     if ($conn->connect_error) {
@@ -16,7 +16,7 @@ function conecta(){
 }
 function conteo(){
     $con=conecta();
-    $query= "Select count(*) as numero from productos ";
+    $query= "Select count(*) as numero from habitaciones ";
     
          $datoProd =  $con->query($query);
     
@@ -31,7 +31,7 @@ function conteo(){
 }
 function login(){
     $con=conecta();
-    $query= "Select count(*) as numero from productos ";
+    $query= "Select count(*) as numero from habitaciones ";
     
          $datoProd =  $con->query($query);
     
@@ -44,14 +44,9 @@ function login(){
 
 
 }
-function recogeDatos($tabla){
+function recogeDatos(){
     $con = conecta();
-    $query= "Select * from productos where Categoria  like '%$tabla%'";
-    if($tabla == "todos"){
-        $query= "Select * from productos";
-    }
-        
-    
+    $query= "Select * from habitaciones" ;  
         $result = $con->query($query);
 
     return $result;
@@ -59,7 +54,7 @@ function recogeDatos($tabla){
 }
 function producto($ident){
     $con = conecta();
-    $query= "Select * from productos where idProductos = $ident";     
+    $query= "Select * from habitaciones where Id = $ident";     
     
         $result = $con->query($query);
 
