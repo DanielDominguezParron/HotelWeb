@@ -1,3 +1,4 @@
+<?php include "bbdd.php";?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -18,39 +19,30 @@
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['interaction', 'dayGrid', 'timeGrid'],
         defaultView: 'dayGridMonth',
-        defaultDate: '2019-11-07',
+        defaultDate: '2020-01-07',
         header: {
           left: 'prev,next',
           center: 'title',
           right: 'timeGridWeek,timeGridDay'
         },
-        events: [{
-            title: 'Olympo',
-            start: '2019-11-01'
-          },
-          {
-            title: 'Puti',
-            start: '2019-11-07',
-            end: '2019-11-10'
-          },
-          {
-            title: 'Paco-Suite',
-            start: '2019-11-11',
-            end: '2019-11-13'
-          },
-          {
-            title: 'Lunch',
-            start: '2019-11-12T12:00:00'
-          },
-          {
-            title: 'Birthday Party',
-            start: '2019-11-13T07:00:00'
-          },
-          {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2019-11-28'
+        events: [<?php 
+        
+         $reservas=recogerReservas();
+        if($reservas->num_rows > 0){
+          while($row= $reservas->fetch_assoc()){
+              $LeavingDate = $row['LeavingDate'];
+              $BookingDate = $row['BookingDate'];
+              $IdCliente= $row['IdCliente'];
+              $IdHabitacion= $row['IdHabitacion'];
+              $booking=strval($LeavingDate);
+              $leave=strval($BookingDate);
+              echo"{title: 'Cliente:$IdCliente  habitacion:$IdHabitacion',start: '$booking',end: '$leave'},";
           }
+      }
+      else{
+          echo ("Ha petado");
+      }
+        ?>
         ]
       });
 
@@ -62,8 +54,7 @@
 include 'cabecera.php';
 ?>
 <body>
-  <a href="javascript:history.back()" class="btn btn-primary center-block">Return main page</a>
-  <div id='calendar'></div>
+  <div class="mt-5" id='calendar'></div>
 </body>
 
 </html>

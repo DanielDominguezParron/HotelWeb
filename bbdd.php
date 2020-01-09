@@ -65,6 +65,15 @@ function modalReserva(){
 
     return $result;
 }
+function recogerReservas()
+{
+    $con = conecta();
+    $query = "SELECT IdCliente,reservas.IdHabitacion,BookingDate,LeavingDate FROM reservas JOIN reserva_habitaciones ON reservas.IdReserva=reserva_habitaciones.IdReserva";
+
+    $result = $con->query($query);
+
+    return $result;
+}
 
 function recogerHabitacion($id)
 {
