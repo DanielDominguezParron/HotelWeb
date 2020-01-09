@@ -30,7 +30,7 @@
       if(!$existe){
         $numProductos = $_SESSION['numProductos']++;
         $arrProducto = [
-    			"Nombre" => $id,
+    			"id" => $id,
     			"nombre" => $name,
     			"precio" => $price,
     			"descripcion" => $descripcion,

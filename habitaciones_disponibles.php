@@ -12,12 +12,15 @@ include 'cabecera.php';
     </div>
 
 <?php } ?>
-<div class="container d-flex justify-content-center mt-5" id="habitaciones">
+<div class="container" id="habitaciones">
 
     <div class="row">
+        <div class="col-12">
+            <h3 class="text text-center mt-5 mb-4">Lista de habitaciones disponibles</h3>
+        </div>
         <div class="text text-center col-12 mb-3">
             <input id="txtBuscar" type="text" name="txtBuscar" value="" placeholder="Nombre de habitación" class="text text-center" style="border: 3px solid #85C1E9 ; border-radius: 1em; width: 50em; ">
-            <button type="button" class="btn btn-outline-primary" style="border-radius: 1em;" name="button" onclick="buscarHabitaciones()">Buscar</button>
+            <button type="button" class="btn btn-outline-primary" style="border-radius: 1em;" name="button" onclick="busqueda()">Buscar</button>
         </div>
         <?php if (isset($_GET['busca'])) {
             $habitaciones = recogeBusqueda();
@@ -54,7 +57,7 @@ include 'cabecera.php';
                             <input type='hidden' name='cantidad' id='cantidad' value='1'>
                             
                         </form>-->
-                        <button class='btn btn-primary mt-2 mb-2' name='btnAccion' value='Agregar' data-toggle="modal" data-target="#modal_reserva" onclick="mostrarModal('<?php echo $img ?>', '<?php echo $nombre; ?>', '<?php echo $precio ?>', '<?php echo $id ?>')" type='submit'>Reservar habitacion</button>
+                        <button class='btn btn-primary mt-2 mb-2' name='btnAccion' value='Agregar' data-toggle="modal" data-target="#modal_reserva" onclick="mostrarModal('<?php echo $nombre; ?>', '<?php echo $precio ?>', '<?php echo $id ?>')" type='submit'>Reservar habitacion</button>
                         <a href='./producto.php?id=<?php echo $id ?>' class='btn btn-warning'>Ver Mas</a>
                     </div>
                 </div>
@@ -78,8 +81,8 @@ include 'cabecera.php';
             <div style="margin: auto;" class="modal-body">
                 <!-- body del modal -->
                 <!-- Contenido generado en js -->
-                <img id="modalImg" width="200px" src="<?php echo $img ?>" alt="imgModal">
-                <h5 id="modalTitle">Título</h5>
+                <img id="modalImg" width="200px" src='IMG/logo.png' alt="imgModal">
+                <h5 class="text text-center" id="modalTitle">Título</h5>
                 <p id="modalPrice" style="text-align:right;">0,00 €</p>
             </div>
             <div class="modal-footer">

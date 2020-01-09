@@ -8,7 +8,10 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
 
 ?>
 
-<div class="mt-5">
+<div class="row">
+    <div class="col-12">
+        <h3 class="text text-center mt-5 mb-4">Lista de trabajadores</h3>
+    </div>
     <div class="table-responsive">
         <table class="table table-bordered table-striped" id="datos_trabajadores">
             <thead>
@@ -34,7 +37,6 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
                             <td>" . $row['name'] . "</td>
                             <td>" . $row['surname'] . "</td>
                             <td>" . $row['mail'] . "</td>
-                           
                         </tr>";
                 } ?>
             </tbody>

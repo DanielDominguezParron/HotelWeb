@@ -4,9 +4,15 @@ include 'cabecera.php';
 $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
 ?>
 
-<div class=" row mt-5">
+<div class="row">
+    <div class="col-12">
+        <h3 class="text text-center mt-5 mb-4">Lista de clientes</h3>
+    </div>
+    <div>
+        <button type="button" class="btn btn-success ">Nuevo cliente</button>
+    </div>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped" id="datos_clientes">
+        <table  id="datos_clientes" class="table table-bordered table-striped">
             <thead>
                 <tr class="text text-center">
                     <!-- definimos cabeceras de la tabla -->
@@ -15,7 +21,6 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
                     <th>Apellidos</th>
                     <th>Email</th>
                     <th class="tabledit-toolbar-column"> Acciones</th>
-                    <th> <button type="button" class="btn btn-success ">Nuevo cliente</button></th>
                 </tr>
             </thead>
 

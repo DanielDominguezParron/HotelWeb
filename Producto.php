@@ -21,6 +21,7 @@ if ($datoProd->num_rows > 0) {
     $id = $row['id'];
     $nombre = $row['name'];
     $planta = $row['planta'];
+    $numero = $row['number'];
     $precio = $row['price'];
     $descr = $row['description'];
     $img = $row['photo'];
@@ -36,12 +37,16 @@ if ($datoProd->num_rows > 0) {
         </div>
 
         <div class=" offset-4 col-4">
-          <h3><?php echo $descr ?></h3>
-          <h3><?php echo $planta . "º planta" ?></h3>
+          <h3>Descripción:</h3>
+            <p><?php echo $descr ?></p>
+          <h4><?php echo $planta . "º planta" ?></h4>
+          <h3>Numero de habitación:</h3>
+           
+          <p><?php echo $numero . "º planta" ?></p>
         </div>
 
         <div class="col-8 offset-2 ">
-          <h3><?php echo "TOTAL: ".$precio."€" ?></h3>
+          <h3><?php echo "TOTAL: " . $precio . "€" ?></h3>
         </div>
 
     <?php

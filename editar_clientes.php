@@ -13,8 +13,8 @@ if (conecta()){
                 $update_field .= "mail='" . $input['mail'] . "'";
             }
             if ($update_field && $input['DNI']) {
-                $sql_query = "UPDATE trabajadores SET $update_field WHERE DNI='" . $input['DNI'] . "'";
-                $consultaTrabajadores or die("database error:" . mysqli_error($conn));
+                $sql_query = "UPDATE clientes SET $update_field WHERE DNI='" . $input['DNI'] . "'";
+                mysqli_query(conecta(), $sql_query) or die("database error:" . mysqli_error(conecta()));
             }
         }
         } ?>

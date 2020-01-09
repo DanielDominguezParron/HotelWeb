@@ -2,9 +2,8 @@
 include 'carrito.php';
 include 'cabecera.php';
 ?>
-<br>
 
-<h3>Lista de habitaciones reservadas</h3>
+<h3 class="text text-center mt-5 mb-4">Lista de habitaciones para reservadas</h3>
 
 <?php
 if (isset($_SESSION['nombre'])) {
@@ -16,36 +15,41 @@ if (isset($_SESSION['carrito'])) {
         <table class="table table-light table-bordered">
             <tbody>
                 <tr>
-                    <th width="40%">Descripción</th>
-                    <th width="15%" class="text-center">Cantidad</th>
-                    <th width="20%" class="text-center">Precio</th>
+                    <th width="40%">Id de Reserva</th>
+                    <th width="40%">Nombre de Reserva</th>
+                    <th width="15%" class="text-center">Habitacion</th>
+                    <th width="20%" class="text-center">Precio por habitacion</th>
+                    <th width="20%" class="text-center">Cantidad</th>
                     <th width="20%" class="text-center">Total</th>
-                    <th width="5%">--</th>
+                    <th width="5%"> <button class="btn btn-danger" name="btnAccion" value="EliminarTodo" type="submit">Eliminar Todo</button></th>
                 </tr>
                 <?php $total = 0;
                 $arrProductos = array();
                 ?>
-                <?php foreach ($_SESSION['carrito'] as $producto) { ?>
+                <?php foreach ($_SESSION['carrito'] as $reserva) { ?>
                     <tr>
                         <?php
-                        $arrProductos[] = $producto['Nombre'];
+                        $arrProductos[] = $reserva['nombre'];
                         ?>
-                        <td width="40%"><?php echo $producto['Nombre'] ?></td>
-                        <td width="15%" class="text-center"><?php echo $producto['Cantidad'] ?></td>
-                        <td width="20%" class="text-center"><?php echo $producto['Precio'] ?></td>
-                        <td width="20%" class="text-center"><?php echo number_format($producto['Precio'] * $producto['Cantidad'], 2) ?></td>
+                        <td width="40%"><?php echo $reserva['id'] ?></td>
+                        <td width="15%" class="text-center"><?php echo "Falta por hacer" ?></td>
+                        <td width="40%"><?php echo $reserva['nombre'] ?></td>
+
+                        <td width="20%" class="text-center"><?php echo $reserva['precio'] ?></td>
+                        <td width="20%" class="text-center"><?php echo $reserva['cantidad'] ?></td>
+                        <td width="20%" class="text-center"><?php echo number_format($reserva['precio'] * $reserva['cantidad'], 2) ?></td>
                         <td width="5%">
                             <form action="" method="post">
-                                <input type='hidden' name='id' id='id' value="<?php echo $producto['id'] ?>"><br>
+                                <input type='hidden' name='id' id='id' value="<?php echo $reserva['id'] ?>"><br>
                                 <button class="btn btn-danger" name="btnAccion" value="Eliminar" type="submit">Eliminar</button>
                             </form>
                         </td>
                     </tr>
-                    <?php $total = $total + ($producto['Precio'] * $producto['Cantidad']); ?>
-                <?php } ?>
+                <?php $total = $total + ($reserva['precio'] * $reserva['cantidad']);
+                } ?>
                 <tr>
-                    <td colspan="3" align="right">
-                        <h3>Total</h3>
+                    <td colspan="5" align="right">
+                        <h3>Total:</h3>
                     </td>
                     <td align="right">
                         <h3>$<?php echo number_format($total, 2) ?></h3>
@@ -54,6 +58,7 @@ if (isset($_SESSION['carrito'])) {
                 </tr>
             </tbody>
         </table>
+
         <?php
         $productoss = implode(",", $arrProductos);
         if (isset($_SESSION['nombre'])) {
@@ -74,7 +79,7 @@ if (isset($_SESSION['carrito'])) {
     ?>
 
     <div class="alert alert-success">
-        No hay reservas
+        No hay habitaciones para reservar pendientes
     </div>
 
 

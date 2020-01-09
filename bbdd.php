@@ -43,7 +43,7 @@ function login()
 function recogeDatos()
 {
     $con = conecta();
-    $query = "SELECT * FROM habitaciones";
+    $query = "SELECT * FROM habitaciones WHERE status LIKE '0'";
     $result = $con->query($query);
 
     return $result;
@@ -52,7 +52,7 @@ function recogeDatos()
 function recogeBusqueda()
 {
     $con = conecta();
-    $query = "SELECT * FROM habitaciones WHERE NAME LIKE '%" . $_GET['busca'] . "%'";
+    $query = "SELECT * FROM habitaciones WHERE status LIKE '0'  AND name LIKE '%" . $_GET['busca'] . "%'";
     $result = $con->query($query);
 
     return $result;
