@@ -14,11 +14,12 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
             <thead>
                 <tr>
                     <!-- definimos cabeceras de la tabla -->
+                    <th>DNI</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Email</th>
-                    <th>Contraseña</th>
-                    <th>DNI</th>
+
+                    <th class="tabledit-toolbar-column"> Acciones</th>
                 </tr>
             </thead>
 
@@ -29,11 +30,11 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
                 while ($row = mysqli_fetch_assoc($resultset)) {
                     echo "
                         <tr>
+                            <td>" . $row['DNI'] . "</td>
                             <td>" . $row['name'] . "</td>
                             <td>" . $row['surname'] . "</td>
                             <td>" . $row['mail'] . "</td>
-                            <td>" . $row['password'] . "</td>
-                            <td>" . $row['DNI'] . "</td>
+                           
                         </tr>";
                 } ?>
             </tbody>

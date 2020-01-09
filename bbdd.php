@@ -66,10 +66,10 @@ function modalReserva(){
     return $result;
 }
 
-function producto($ident)
+function recogerHabitacion($id)
 {
     $con = conecta();
-    $query = "Select * from habitaciones where Id = $ident";
+    $query = "Select * from habitaciones where Id = $id";
 
     $result = $con->query($query);
 

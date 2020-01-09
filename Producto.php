@@ -1,19 +1,12 @@
 <?php include "carrito.php";
- include "bbdd.php";
+include "bbdd.php";
 
 if (isset($_GET["id"])) {
   $producto = $_GET["id"];
 } else {
   header("Location: habitaciones.php");
 }
-$datoProd = producto($producto);
-
-if (isset($_GET["categoria"])) {
-  $cat = $_GET["categoria"];
-} else {
-  $cat = "todos";
-}
-$productos = recogeDatos($cat);
+$datoProd = recogerHabitacion($producto);
 include 'cabecera.php';
 ?>
 <?php if ($mensaje != "") { ?>
@@ -21,28 +14,44 @@ include 'cabecera.php';
     <?php echo $mensaje; ?>
     <a href="reservas.php" class="badge badge-success">Ver carrito</a>
   </div>
-<?php } ?>
-  <div class="d-flex flex-row">
+  <?php }
 
-    <?php if ($datoProd->num_rows > 0) {
-      while ($row = $datoProd->fetch_assoc()) {
-        $id = $row['idProductos'];
-        $img = $row['Imagen'];
-        $descr = $row['DescrLong'];
+if ($datoProd->num_rows > 0) {
+  while ($row = $datoProd->fetch_assoc()) {
+    $id = $row['id'];
+    $nombre = $row['name'];
+    $planta = $row['planta'];
+    $precio = $row['price'];
+    $descr = $row['description'];
+    $img = $row['photo'];
+  ?>
 
-        $nombre = $row['Nombre'];
-        $categoria = $row['Categoria'];
-        echo "<div class='p-2 text-center'><h1> $nombre</h1>";
-        echo "<img src='$img' alt='$nombre'></div>";
-        echo "<div class='p-2'><h1 class='text-center'>$categoria</h1></br> $descr</div><div class='d-flex flex-row'>
-		  <div class='p-2'><button  class='btn btn-light'><a  href='./habitaciones.php'>Volver</a></button></div>
-	  </div>";
-      }
-    } else {
-      echo ("ha habido un error 404");
-    }
+    <div class="row">
+      <div class='col-12 mt-5 mb-2 text-center'>
+        <h1><?php echo $nombre ?></h1>
+      </div>
+      <div class="row mt-5">
+        <div class=" col-4">
+          <img src='<?php echo $img ?>' style="width: 40em; height:30em" alt='<?php echo $nombre ?>'>
+        </div>
+
+        <div class=" offset-4 col-4">
+          <h3><?php echo $descr ?></h3>
+          <h3><?php echo $planta . "º planta" ?></h3>
+        </div>
+
+        <div class="col-8 offset-2 ">
+          <h3><?php echo "TOTAL: ".$precio."€" ?></h3>
+        </div>
+
+    <?php
+  }
+} else {
+  echo ("ha habido un error 404");
+}
     ?>
-  </div>
-</body>
+      </div>
+    </div>
+    </body>
 
-</html>
+    </html>

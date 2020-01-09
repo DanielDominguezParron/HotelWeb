@@ -5,18 +5,17 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
 ?>
 
 <div class=" row mt-5">
-    <div class="col-8 offset-6 mb-3">
-        <button type="button" class="btn btn-success ">Nuevo cliente</button>
-    </div>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped" id="datos_trabajadores">
+        <table class="table table-bordered table-striped" id="datos_clientes">
             <thead>
-                <tr>
+                <tr class="text text-center">
                     <!-- definimos cabeceras de la tabla -->
                     <th>DNI</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
-                    <th>Mail</th>
+                    <th>Email</th>
+                    <th class="tabledit-toolbar-column"> Acciones</th>
+                    <th> <button type="button" class="btn btn-success ">Nuevo cliente</button></th>
                 </tr>
             </thead>
 
