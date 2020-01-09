@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-01-2020 a las 21:22:32
+-- Tiempo de generación: 09-01-2020 a las 22:04:53
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `hotel_erp`
 --
-CREATE DATABASE IF NOT EXISTS `hotel_erp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `hotel_erp` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
 USE `hotel_erp`;
 
 -- --------------------------------------------------------
@@ -32,12 +32,20 @@ USE `hotel_erp`;
 
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
-  `DNI` int(11) NOT NULL,
-  `Name` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `Surname` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `Mail` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `DNI` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
+  `name` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `surname` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `mail` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`DNI`, `name`, `surname`, `mail`) VALUES
+('78912345y', 'Susana', 'Sanchez', 'susanan@gmailcom'),
+('98765432u', 'Pedro', 'Casado', 'pedrocasa@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -47,25 +55,28 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 
 DROP TABLE IF EXISTS `habitaciones`;
 CREATE TABLE IF NOT EXISTS `habitaciones` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `Price` double NOT NULL,
-  `Description` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
-  `Photo` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  PRIMARY KEY (`Id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `planta` set('1','2','3','4') COLLATE utf8_spanish_ci NOT NULL,
+  `number` int(3) NOT NULL,
+  `price` double NOT NULL,
+  `description` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
+  `photo` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `habitaciones`
 --
 
-INSERT INTO `habitaciones` (`Id`, `Name`, `Price`, `Description`, `Photo`) VALUES
-(1, 'Olympo', 300, 'Best room ever', '.\\IMG\\suite.jpg'),
-(2, 'Olympo', 400, 'puti', '.\\IMG\\suite.jpg'),
-(3, 'Olympo', 200, '', '.\\IMG\\suite.jpg'),
-(4, 'Olympo', 100, '', '.\\IMG\\suite.jpg'),
-(5, 'Casa del ....', 0, 'Que no sube lo que hace y luego dice de hacer a los demas', '.\\IMG\\suitered.jpg'),
-(6, 'Casa de Javi', 0, 'Lloron', '.\\IMG\\suite.jpg');
+INSERT INTO `habitaciones` (`id`, `name`, `planta`, `number`, `price`, `description`, `photo`, `status`) VALUES
+(1, 'Suite Madera', '1', 100, 300, 'Best room ever', '.\\IMG\\madera.jpg', 1),
+(2, 'Olympo', '2', 201, 400, 'puti', '.\\IMG\\suiteimperial.jpg', 0),
+(3, 'Olympo', '3', 321, 200, 'La habitación presenta una decoración elegante en tonos suaves. Disponen de aire acondicionado, minibar, caja fuerte, TV de pantalla plana vía satélite y WiFi gratuita.', '.\\IMG\\suite.jpg', 0),
+(4, 'casi Olympo ', '1', 104, 100, '', '.\\IMG\\suite.jpg', 0),
+(5, 'Mausoleo', '4', 423, 1000, 'La habitación es acogedora, con ambientación característica, presenta cama doble, con vistas al cementerio y a la playa, wifi, cocina, jacuzzi.\r\nComprando esta habitación el huésped podrá entrar a la zona Vip del spa.', '.\\IMG\\suitered.jpg', 0),
+(6, 'Casa de Javi', '4', 450, 1, 'Lloron', '.\\IMG\\modern.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -80,8 +91,8 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   `IdHabitacion` int(11) NOT NULL,
   `TotalPrice` double NOT NULL,
   PRIMARY KEY (`IdReserva`),
-  KEY `IdCliente` (`IdCliente`),
-  KEY `IdHabitacion` (`IdHabitacion`)
+  KEY `IdHabitacion` (`IdHabitacion`),
+  KEY `IdCliente` (`IdCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -113,7 +124,6 @@ CREATE TABLE IF NOT EXISTS `reseñas` (
   `Description` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `Opinion` tinyint(1) NOT NULL,
   PRIMARY KEY (`IdReseña`),
-  KEY `IdCliente` (`IdCliente`) USING BTREE,
   KEY `IdReserva` (`IdReserva`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -139,18 +149,13 @@ CREATE TABLE IF NOT EXISTS `trabajadores` (
 
 INSERT INTO `trabajadores` (`name`, `surname`, `mail`, `password`, `DNI`) VALUES
 ('Paco', 'Gomez', 'paco@gmail.com', '1234', '11097685K'),
-('w', 'w', 'w@w.com', 'w', '123456789');
+('w', 'w', 'w@w.com', 'w', '123456789'),
+('Javier', 'admin', 'jg@gmailcom', 'admin', '12345689H'),
+('Dani', 'Velazquez', 'danivel@gmail.com', '543219876', '32109876D');
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `reservas`
---
-ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`IdCliente`) REFERENCES `clientes` (`DNI`),
-  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`IdHabitacion`) REFERENCES `habitaciones` (`Id`);
 
 --
 -- Filtros para la tabla `reserva_habitaciones`
@@ -163,8 +168,7 @@ ALTER TABLE `reserva_habitaciones`
 -- Filtros para la tabla `reseñas`
 --
 ALTER TABLE `reseñas`
-  ADD CONSTRAINT `reseñas_ibfk_1` FOREIGN KEY (`IdReserva`) REFERENCES `reservas` (`IdReserva`),
-  ADD CONSTRAINT `reseñas_ibfk_2` FOREIGN KEY (`IdCliente`) REFERENCES `clientes` (`DNI`);
+  ADD CONSTRAINT `reseñas_ibfk_1` FOREIGN KEY (`IdReserva`) REFERENCES `reservas` (`IdReserva`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
