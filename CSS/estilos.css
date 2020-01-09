@@ -4,11 +4,11 @@
 	-o-transition:-o-transform 1s ease-out;
 	-ms-transition:-ms-transform 1s ease-out;
 	transition:transform 1s ease-out;
-	border: solid 2px #add9e6;
+	border: solid 0.125em #add9e6;
   	transition: border-width 1.5s;
 	margin: 10px;
 	margin-bottom: 30px;
-	width: 250px;
+	width: 15.625em;
 }
 .cajas:hover{
 -moz-transform: scale(1.1);
