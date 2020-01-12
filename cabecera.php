@@ -52,6 +52,9 @@
                 <li>
                     <a href="habitaciones_disponibles.php">Habitaciones Disponibles</a>
                 </li>
+				<li>
+                    <a href="resenas.php">Reseñas Clientes</a>
+                </li>
                 <li>
                     <a href="trabajadores.php">Trabajadores</a>
                 </li>
