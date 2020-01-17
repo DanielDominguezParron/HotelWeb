@@ -1,7 +1,7 @@
 <?php
 include "bbdd.php";
 include 'cabecera.php';
-$consultaValoracion = mysqli_query(conecta(), "SELECT * FROM reseñas");
+$consultaValoracion = recogerResenas();
 ?>
 
 <div class="row">
@@ -9,7 +9,7 @@ $consultaValoracion = mysqli_query(conecta(), "SELECT * FROM reseñas");
         <h3 class="text text-center mt-5 mb-4">Valoraciones de Clientes</h3>
     </div>
     <div class="table-responsive">
-        <table  id="datos_valoraciones" class="table table-bordered table-striped">
+        <table id="datos_valoraciones" class="table table-bordered table-striped">
             <thead>
                 <tr class="text text-center">
                     <!-- definimos cabeceras de la tabla en este caso para identificar la valoracion del cliente -->
@@ -17,13 +17,13 @@ $consultaValoracion = mysqli_query(conecta(), "SELECT * FROM reseñas");
                     <th>Id Cliente</th>
                     <th>Id Reserva</th>
                     <th>Descripcion</th>
-					<th>Opinion</th>
+                    <th>Opinion</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 //recorremos resultado de la consulta y añadimos el contenido a la tabla
-				// Se mostrara la informacion segun cada cliente y segun su valoracion correspondiente.
+                // Se mostrara la informacion segun cada cliente y segun su valoracion correspondiente.
                 $resultset = $consultaValoracion or die("error base de datos:" . mysqli_error($conn));
                 while ($row = mysqli_fetch_assoc($resultset)) {
                     echo "
@@ -37,7 +37,5 @@ $consultaValoracion = mysqli_query(conecta(), "SELECT * FROM reseñas");
                 } ?>
             </tbody>
         </table>
-
-
     </div>
 </div>

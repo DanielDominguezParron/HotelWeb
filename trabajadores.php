@@ -1,4 +1,5 @@
 <?php
+ include "carrito.php";
 if (isset($_SESSION['nombre'])) {
     $cliente = $_SESSION['nombre'];
 }
