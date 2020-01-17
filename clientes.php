@@ -9,7 +9,7 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
         <h3 class="text text-center mt-5 mb-4">Lista de clientes</h3>
     </div>
     <div>
-        <button type="button" class="btn btn-success ">Nuevo cliente</button>
+    <a href='./nuevoCliente.php' class='btn btn-success'>Nuevo Cliente</a>
     </div>
     <div class="table-responsive">
         <table id="datos_clientes" class="table table-bordered table-striped">
