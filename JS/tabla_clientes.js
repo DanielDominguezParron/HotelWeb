@@ -4,8 +4,8 @@ $(document).ready(function () {
     columns: {
       deleteButton: true,
       editButton: false,
-      identifier: [5, 'DNI'],
-      editable: [[1, 'name'], [2, 'surname'], [3, 'mail']]
+      identifier: [1, 'DNI'],
+      editable: [[2, 'name'], [3, 'surname'], [4, 'mail']]
     },
     url: 'editar_clientes.php'
   });

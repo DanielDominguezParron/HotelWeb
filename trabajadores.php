@@ -1,5 +1,5 @@
 <?php
- include "carrito.php";
+include "carrito.php";
 if (isset($_SESSION['nombre'])) {
     $cliente = $_SESSION['nombre'];
 }
@@ -16,7 +16,7 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
     <div class="table-responsive">
         <table class="table table-bordered table-striped" id="datos_trabajadores">
             <thead>
-                <tr>
+                <tr class="text text-center">
                     <!-- definimos cabeceras de la tabla -->
                     <th>DNI</th>
                     <th>Nombre</th>
@@ -34,10 +34,10 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
                 while ($row = mysqli_fetch_assoc($resultset)) {
                     echo "
                         <tr>
-                            <td>" . $row['DNI'] . "</td>
-                            <td>" . $row['name'] . "</td>
-                            <td>" . $row['surname'] . "</td>
-                            <td>" . $row['mail'] . "</td>
+                        <td class='text text-center'>" . $row['DNI'] . "</td>
+                        <td class='text text-center'>" . $row['name'] . "</td>
+                        <td class='text text-center'>" . $row['surname'] . "</td>
+                        <td class='text text-center'>" . $row['mail'] . "</td>
                         </tr>";
                 } ?>
             </tbody>

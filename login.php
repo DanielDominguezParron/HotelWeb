@@ -1,10 +1,8 @@
 <html>
-
 <body>
 
     <?php
     include 'bbdd.php';
-
 
     if (isset($_POST["nombre"]) && isset($_POST["contra"])) {
         $nomUsu = $_POST["nombre"];
