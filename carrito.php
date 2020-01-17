@@ -1,6 +1,5 @@
 <?php
 $mensaje="";
-session_start();
 
 if (isset($_POST['btnAccion'])){
     $accion =$_POST['btnAccion'];

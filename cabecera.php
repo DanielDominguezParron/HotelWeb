@@ -32,6 +32,7 @@
 
             <ul class="list-unstyled components">
                 <?php
+                session_start();
                 if (isset($_SESSION["nombre"])) {
                     print "<p>Bienvenido, " . strtoupper($_SESSION['nombre']) . "</p>";
                 } else {
