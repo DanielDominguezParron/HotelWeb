@@ -74,7 +74,15 @@ function recogerReservas()
 
     return $result;
 }
+function diaReserva()
+{
+    $con = conecta();
+    $query = "SELECT BookingDate FROM reserva_habitaciones ORDER BY BookingDate LIMIT 1";
 
+    $result = $con->query($query);
+
+    return $result;
+}
 function recogerHabitacion($id)
 {
     $con = conecta();

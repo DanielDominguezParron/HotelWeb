@@ -1,4 +1,16 @@
-<?php include "bbdd.php";?>
+<?php include "bbdd.php";
+ $date=diaReserva();
+  if($date->num_rows > 0){
+   while($row= $date->fetch_assoc()){
+      $BookingDate = $row['BookingDate'];
+       $booking=strval($BookingDate);
+       
+   }
+}
+else{
+   echo ("Ha petado");
+}
+?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -19,7 +31,8 @@
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['interaction', 'dayGrid', 'timeGrid'],
         defaultView: 'dayGridMonth',
-        defaultDate: '2020-01-07',
+        
+        defaultDate: <?php echo"'$booking'"; ?>,
         header: {
           left: 'prev,next',
           center: 'title',

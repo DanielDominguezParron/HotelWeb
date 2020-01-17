@@ -21,14 +21,15 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `hotel_erp`
 --
-
+CREATE DATABASE IF NOT EXISTS `hotel_erp` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `hotel_erp`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `clientes`
 --
-
-CREATE TABLE `clientes` (
+DROP TABLE IF EXISTS `clientes`;
+CREATE TABLE IF NOT EXISTS `clientes` (
   `DNI` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `surname` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
@@ -48,8 +49,8 @@ INSERT INTO `clientes` (`DNI`, `name`, `surname`, `mail`) VALUES
 --
 -- Estructura de tabla para la tabla `habitaciones`
 --
-
-CREATE TABLE `habitaciones` (
+DROP TABLE IF EXISTS `habitaciones`;
+CREATE TABLE IF NOT EXISTS `habitaciones`(
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `planta` set('1','2','3','4') COLLATE utf8_spanish_ci NOT NULL,
@@ -77,8 +78,8 @@ INSERT INTO `habitaciones` (`id`, `name`, `planta`, `number`, `price`, `descript
 --
 -- Estructura de tabla para la tabla `reservas`
 --
-
-CREATE TABLE `reservas` (
+DROP TABLE IF EXISTS `reservas`;
+CREATE TABLE IF NOT EXISTS `reservas` (
   `IdReserva` int(11) NOT NULL,
   `IdCliente` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `IdHabitacion` int(11) NOT NULL,
@@ -97,8 +98,8 @@ INSERT INTO `reservas` (`IdReserva`, `IdCliente`, `IdHabitacion`, `TotalPrice`) 
 --
 -- Estructura de tabla para la tabla `reserva_habitaciones`
 --
-
-CREATE TABLE `reserva_habitaciones` (
+DROP TABLE IF EXISTS `reserva_habitaciones`;
+CREATE TABLE IF NOT EXISTS `reserva_habitaciones` (
   `BookingDate` date NOT NULL,
   `LeavingDate` date NOT NULL,
   `IdReserva` int(11) NOT NULL,
@@ -117,8 +118,8 @@ INSERT INTO `reserva_habitaciones` (`BookingDate`, `LeavingDate`, `IdReserva`, `
 --
 -- Estructura de tabla para la tabla `reseñas`
 --
-
-CREATE TABLE `reseñas` (
+DROP TABLE IF EXISTS `reseñas`;
+CREATE TABLE IF NOT EXISTS `reseñas` (
   `IdReseña` int(11) NOT NULL,
   `IdCliente` int(11) NOT NULL,
   `IdReserva` int(11) NOT NULL,
@@ -131,8 +132,8 @@ CREATE TABLE `reseñas` (
 --
 -- Estructura de tabla para la tabla `trabajadores`
 --
-
-CREATE TABLE `trabajadores` (
+DROP TABLE IF EXISTS `trabajadores`;
+CREATE TABLE IF NOT EXISTS `trabajadores` (
   `name` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `surname` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `mail` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
