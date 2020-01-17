@@ -1,6 +1,5 @@
 <?php
 
-
 function conecta()
 {
     $servername = "localhost";
@@ -14,20 +13,8 @@ function conecta()
     }
     return $conn;
 }
+
 function conteo()
-{
-    $con = conecta();
-    $query = "SELECT COUNT(*) AS numero FROM habitaciones ";
-
-    $datoProd =  $con->query($query);
-
-
-    while ($row = $datoProd->fetch_assoc()) {
-        $num = $row["numero"];
-    }
-    return $num;
-}
-function login()
 {
     $con = conecta();
     $query = "SELECT COUNT(*) AS numero FROM habitaciones ";
@@ -58,7 +45,8 @@ function recogeBusqueda()
     return $result;
 }
 
-function modalReserva(){
+function modalReserva()
+{
     $con = conecta();
     $query = "SELECT * FROM habitaciones WHERE id = " . $_GET["id"];
     $result = $con->query($query);
@@ -87,6 +75,16 @@ function recogerHabitacion($id)
 {
     $con = conecta();
     $query = "Select * from habitaciones where Id = $id";
+
+    $result = $con->query($query);
+
+    return $result;
+}
+
+function recogerResenas()
+{
+    $con = conecta();
+    $query = "Select * from valoraciones";
 
     $result = $con->query($query);
 

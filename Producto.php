@@ -38,15 +38,15 @@ if ($datoProd->num_rows > 0) {
 
         <div class=" offset-4 col-4">
           <h3>Descripción:</h3>
-            <p><?php echo $descr ?></p>
-          <h4><?php echo $planta . "º planta" ?></h4>
-          <h3>Numero de habitación:</h3>
-           
-          <p><?php echo $numero . "º planta" ?></p>
+          <p class="mb-3"><?php echo $descr ?></p>
+          <h4 class="mb-3"><?php echo $planta . "º planta" ?></h4>
+          <h4>Numero de habitación:  <p><?php echo $numero ?></p></h4>
+
+         
         </div>
 
-        <div class="col-8 offset-2 ">
-          <h3><?php echo "TOTAL: " . $precio . "€" ?></h3>
+        <div class="col-3 offset-8">
+          <h3 class="text text-center" style="border-radius: 2em;background-color:#14ff12; color:light-green;"><?php echo "TOTAL: " . $precio . "€" ?></h3>
         </div>
 
     <?php

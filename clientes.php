@@ -12,7 +12,7 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
         <button type="button" class="btn btn-success ">Nuevo cliente</button>
     </div>
     <div class="table-responsive">
-        <table  id="datos_clientes" class="table table-bordered table-striped">
+        <table id="datos_clientes" class="table table-bordered table-striped">
             <thead>
                 <tr class="text text-center">
                     <!-- definimos cabeceras de la tabla -->
@@ -39,7 +39,5 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
                 } ?>
             </tbody>
         </table>
-
-
     </div>
 </div>
