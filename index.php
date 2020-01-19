@@ -27,6 +27,15 @@
 	<link rel="stylesheet" type="text/css" href="Login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="Login/css/main.css">
 	<!--===============================================================================================-->
+	<!-- ALERTIFY -->
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css" />
 </head>
 
 <body>
@@ -43,9 +52,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('Login/images/bg-01.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
-				<span class="login100-form-title p-b-41">
-					Account Login
-				</span>
+				<span class="login100-form-title p-b-41">Account Login</span>
 				<form class="login100-form validate-form p-b-33 p-t-5" action='login.php' method='post'>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter DNI">
@@ -59,21 +66,14 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">
-						<button class="login100-form-btn">
-							Login
-						</button>
+						<button class="login100-form-btn">Login</button>
 					</div>
-
 				</form>
 			</div>
 		</div>
 	</div>
 
-
-
-
 	<?php
-
 	$arrErrores = [
 		"noform" 		=> "No se ha enviado el formulario",
 		"notOk"			=> "DNI o contraseña incorrectos",
@@ -84,12 +84,18 @@
 	if (isset($_GET["error"])) {
 		$claveError = $_GET['error'];
 		if (isset($arrErrores[$claveError])) {
-			echo "<h2>$arrErrores[$claveError]</h2>";
-		} else {
-			echo "<h2>Error desconocido</h2>";
+	?>
+			<script>
+				alertify.alert('HOTELUX   ERROR', "<?php echo $arrErrores[$claveError]; ?>");
+			</script>
+		<?php } else {
+		?>
+			<script>
+				alertify.alert('HOTELUX   ERROR', "Error desconocido");
+			</script>
+	<?php
 		}
 	}
-
 	?>
 	<!--===============================================================================================-->
 	<script src="Login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -107,6 +113,7 @@
 	<script src="Login/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="Login/js/main.js"></script>
+
 </body>
 
 </html>

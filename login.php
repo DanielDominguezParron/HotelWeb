@@ -24,7 +24,6 @@
             header("Location: index.php?error=notOk");
         }
     } else {
-
         header("Location: index.php?error=noform");
     }
     ?>
