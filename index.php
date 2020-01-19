@@ -48,8 +48,8 @@
 				</span>
 				<form class="login100-form validate-form p-b-33 p-t-5" action='login.php' method='post'>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter username">
-						<input class="input100" type="text" name="nombre" placeholder="User name">
+					<div class="wrap-input100 validate-input" data-validate="Enter DNI">
+						<input class="input100" type="text" name="DNI" placeholder="DNI">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
@@ -76,7 +76,7 @@
 
 	$arrErrores = [
 		"noform" 		=> "No se ha enviado el formulario",
-		"notOk"			=> "Usuario o contraseña incorrectos",
+		"notOk"			=> "DNI o contraseña incorrectos",
 		"notSession"	=> "Sesión no iniciada",
 		"logout"		=> "Sesión cerrada",
 	];
