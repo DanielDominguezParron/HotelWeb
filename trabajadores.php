@@ -13,6 +13,9 @@ $consultaTrabajadores = mysqli_query(conecta(), "SELECT * FROM trabajadores");
     <div class="col-12">
         <h3 class="text text-center mt-5 mb-4">Lista de trabajadores</h3>
     </div>
+    <div>
+    <a href='./nuevoTrabajador.php' class='btn btn-success'>Nuevo Trabajador</a>
+    </div>
     <div class="table-responsive">
         <table class="table table-bordered table-striped" id="datos_trabajadores">
             <thead>
