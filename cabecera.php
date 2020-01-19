@@ -36,7 +36,7 @@
                 if (isset($_SESSION["nombre"])) {
                     print "<p>Bienvenido, " . strtoupper($_SESSION['nombre']) . "</p>";
                 } else {
-                    print "<p>Bienvenido,DESC "  . "</p>";
+                    print "<p>NO LOGIN </p>";
                 }
                 ?>
                 <li>
@@ -46,15 +46,15 @@
                     <a href="calendar.php">Calendario</a>
                 </li>
                 <li>
-                    <a href="reservas.php">Reservas</a>
+                    <a href="habitaciones_reservadas.php">Habitaciones Reservadas</a>
                 </li>
                 <li>
-                    <a href="habitaciones_reservadas.php">Habitaciones Reservadas</a>
+                    <a href="reservas.php">Reservas</a>
                 </li>
                 <li>
                     <a href="habitaciones_disponibles.php">Habitaciones Disponibles</a>
                 </li>
-                
+
                 <li>
                     <a href="valoraciones.php">Valoraciones de Clientes</a>
                 </li>

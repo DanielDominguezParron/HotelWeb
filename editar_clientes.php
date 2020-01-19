@@ -1,7 +1,14 @@
 <?php
 include 'bbdd.php';
 if (conecta()){
-        $input = filter_input_array(INPUT_POST);
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
+          $input =filter_input_array(INPUT_POST);
+        
+        } else {
+          $input =filter_input_array(INPUT_GET);
+        
+        }
+        
 
         if ($input['action'] == 'edit') {
             $update_field = '';
@@ -17,4 +24,4 @@ if (conecta()){
                 mysqli_query(conecta(), $sql_query) or die("database error:" . mysqli_error(conecta()));
             }
         }
-        } ?>
+        }

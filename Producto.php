@@ -12,7 +12,7 @@ include 'cabecera.php';
 <?php if ($mensaje != "") { ?>
   <div class="alert alert-success">
     <?php echo $mensaje; ?>
-    <a href="reservas.php" class="badge badge-success">Ver carrito</a>
+    <a href="reservas.php" class="badge badge-success">Ver reservas</a>
   </div>
   <?php }
 
