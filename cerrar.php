@@ -10,7 +10,8 @@
 		header("Location: index.php?error=logout");
 		
 	}else{
-		
+		session_unset();
+		session_destroy();
 		header("Location: index.php?error=notSession");
 		
 	}

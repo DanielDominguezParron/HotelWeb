@@ -14,7 +14,7 @@ $consultaValoracion = recogerResenas();
                 <tr class="text text-center">
                     <!-- definimos cabeceras de la tabla en este caso para identificar la valoracion del cliente -->
                     <th>Id Valoracion</th>
-                    <th>DNI</th>
+                    <th>DNI de cliente</th>
                     <th>Id Reserva</th>
                     <th>Descripcion</th>
                     <th>Opinion</th>

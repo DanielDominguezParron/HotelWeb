@@ -32,17 +32,17 @@ if ($datoProd->num_rows > 0) {
         <h1><?php echo $nombre ?></h1>
       </div>
       <div class="row mt-5">
-        <div class=" col-4">
-          <img src='<?php echo $img ?>' style="width: 40em; height:30em" alt='<?php echo $nombre ?>'>
+        <div class="col-12 col-xl-4">
+          <img class="img-rounded" src='<?php echo $img ?>' style="width: 40em; height:30em" alt='<?php echo $nombre ?>'>
         </div>
 
-        <div class=" offset-4 col-4">
+        <div class="offset-4 col-4">
           <h3>Descripción:</h3>
           <p class="mb-3"><?php echo $descr ?></p>
           <h4 class="mb-3"><?php echo $planta . "º planta" ?></h4>
-          <h4>Numero de habitación:  <p><?php echo $numero ?></p></h4>
+          <h4>Numero de habitación: <p><?php echo $numero ?></p>
+          </h4>
 
-         
         </div>
 
         <div class="col-3 offset-8">

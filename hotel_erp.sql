@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-01-2020 a las 10:03:23
+-- Tiempo de generación: 19-01-2020 a las 21:06:10
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -29,8 +29,6 @@ USE `hotel_erp`;
 --
 -- Estructura de tabla para la tabla `clientes`
 --
--- Creación: 17-01-2020 a las 08:45:55
---
 
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
@@ -42,14 +40,13 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- RELACIONES PARA LA TABLA `clientes`:
---
-
---
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`DNI`, `name`, `surname`, `mail`) VALUES
+('4321F', '4321f', '4321f', '4321f@4321f.com'),
+('654321Q', 'Paul', 'Ferrer', 'paulf@gmail.com'),
+('76542184p', 'paco', 'Sanchez', 'paco123@gmail.com'),
 ('78912345y', 'Susana', 'Sanchez', 'susanan@gmailcom'),
 ('98765432u', 'Pedro', 'Casado', 'pedrocasa@gmail.com');
 
@@ -57,8 +54,6 @@ INSERT INTO `clientes` (`DNI`, `name`, `surname`, `mail`) VALUES
 
 --
 -- Estructura de tabla para la tabla `habitaciones`
---
--- Creación: 17-01-2020 a las 08:45:55
 --
 
 DROP TABLE IF EXISTS `habitaciones`;
@@ -72,11 +67,7 @@ CREATE TABLE IF NOT EXISTS `habitaciones` (
   `photo` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- RELACIONES PARA LA TABLA `habitaciones`:
---
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `habitaciones`
@@ -86,16 +77,16 @@ INSERT INTO `habitaciones` (`id`, `name`, `planta`, `number`, `price`, `descript
 (1, 'Suite Madera', '1', 100, 300, 'Best room ever', '.\\IMG\\madera.jpg', 1),
 (2, 'Olympo', '2', 201, 400, 'puti', '.\\IMG\\suiteimperial.jpg', 0),
 (3, 'Olympo', '3', 321, 200, 'La habitación presenta una decoración elegante en tonos suaves. Disponen de aire acondicionado, minibar, caja fuerte, TV de pantalla plana vía satélite y WiFi gratuita.', '.\\IMG\\suite.jpg', 0),
-(4, 'casi Olympo ', '1', 104, 100, '', '.\\IMG\\suite.jpg', 0),
+(4, 'White Confort ', '1', 104, 142, '', '.\\IMG\\whiteconfort.jpg', 0),
 (5, 'Mausoleo', '4', 423, 1000, 'La habitación es acogedora, con ambientación característica, presenta cama doble, con vistas al cementerio y a la playa, wifi, cocina, jacuzzi.\r\nComprando esta habitación el huésped podrá entrar a la zona Vip del spa.', '.\\IMG\\suitered.jpg', 0),
-(6, 'Casa de Javi', '4', 450, 1, 'Lloron', '.\\IMG\\modern.jpg', 0);
+(6, 'Casa de Javi', '4', 450, 200, 'Lloron', '.\\IMG\\modern.jpg', 0),
+(7, 'Suite Simple', '2', 211, 35, 'Habitación romantica sencilla y minimalista\r\nWifi, tv 55 pulgadas, baño jacuzzi, vistas al mar.', '.\\IMG\\simple.jpg', 0),
+(8, 'Suite todo en uno', '1', 121, 55, 'Habitación grande, todo unido, para toda clase de huespedes, con cocina, wifi, baño jacuzzi, camas dobles, con vistas a patio interior', '.\\IMG\\todoenuno.jpg', 0);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `reservas`
---
--- Creación: 17-01-2020 a las 08:45:55
 --
 
 DROP TABLE IF EXISTS `reservas`;
@@ -110,14 +101,6 @@ CREATE TABLE IF NOT EXISTS `reservas` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- RELACIONES PARA LA TABLA `reservas`:
---   `IdCliente`
---       `clientes` -> `DNI`
---   `IdHabitacion`
---       `habitaciones` -> `id`
---
-
---
 -- Volcado de datos para la tabla `reservas`
 --
 
@@ -128,8 +111,6 @@ INSERT INTO `reservas` (`IdReserva`, `IdCliente`, `IdHabitacion`, `TotalPrice`) 
 
 --
 -- Estructura de tabla para la tabla `reserva_habitaciones`
---
--- Creación: 17-01-2020 a las 08:45:55
 --
 
 DROP TABLE IF EXISTS `reserva_habitaciones`;
@@ -143,18 +124,6 @@ CREATE TABLE IF NOT EXISTS `reserva_habitaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- RELACIONES PARA LA TABLA `reserva_habitaciones`:
---   `IdHabitacion`
---       `habitaciones` -> `id`
---   `IdReserva`
---       `reservas` -> `IdReserva`
---   `IdReserva`
---       `reservas` -> `IdReserva`
---   `IdHabitacion`
---       `habitaciones` -> `id`
---
-
---
 -- Volcado de datos para la tabla `reserva_habitaciones`
 --
 
@@ -165,8 +134,6 @@ INSERT INTO `reserva_habitaciones` (`BookingDate`, `LeavingDate`, `IdReserva`, `
 
 --
 -- Estructura de tabla para la tabla `trabajadores`
---
--- Creación: 17-01-2020 a las 08:45:55
 --
 
 DROP TABLE IF EXISTS `trabajadores`;
@@ -180,45 +147,44 @@ CREATE TABLE IF NOT EXISTS `trabajadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- RELACIONES PARA LA TABLA `trabajadores`:
---
-
---
 -- Volcado de datos para la tabla `trabajadores`
 --
 
 INSERT INTO `trabajadores` (`name`, `surname`, `mail`, `password`, `DNI`) VALUES
 ('Paco', 'Gomez', 'paco@gmail.com', '1234', '11097685K'),
 ('w', 'w', 'w@w.com', 'w', '123456789'),
+('pepe', 'Sanchez', 'pepeixntl@gmail.com', 'pepe1234', '12345678h'),
 ('Javier', 'admin', 'jg@gmailcom', 'admin', '12345689H'),
-('Dani', 'Velazquez', 'danivel@gmail.com', '543219876', '32109876D');
+('qwerty', 'qwerty', 'qwerty@qwerty', 'qwerty123', '123Q'),
+('Dani', 'Velazquez', 'danivel@gmail.com', '543219876', '32109876D'),
+('John', 'Wick', 'john54321@john54321.com', 'john54321', '54321Y'),
+('Pablo', 'Iglesias', 'pablito@clavito.com', 'pablito123', '76512184P'),
+('Pedro', 'Sanchez', 'pedrosan@gmail.com', 'pedrito12345', '7652184P'),
+('Jorge', 'Sanchez', 'jorge123@gmail.com', 'jorge123', '765432184');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `valoraciones`
 --
--- Creación: 17-01-2020 a las 08:45:55
---
 
 DROP TABLE IF EXISTS `valoraciones`;
 CREATE TABLE IF NOT EXISTS `valoraciones` (
-  `IdReseña` int(11) NOT NULL AUTO_INCREMENT,
+  `IdValoracion` int(11) NOT NULL AUTO_INCREMENT,
   `IdCliente` int(11) NOT NULL,
   `IdReserva` int(11) NOT NULL,
   `Description` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `Opinion` tinyint(1) NOT NULL,
-  PRIMARY KEY (`IdReseña`),
+  PRIMARY KEY (`IdValoracion`),
   KEY `IdReserva` (`IdReserva`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- RELACIONES PARA LA TABLA `valoraciones`:
---   `IdCliente`
---       `clientes` -> `DNI`
---   `IdReserva`
---       `reservas` -> `IdReserva`
+-- Volcado de datos para la tabla `valoraciones`
 --
+
+INSERT INTO `valoraciones` (`IdValoracion`, `IdCliente`, `IdReserva`, `Description`, `Opinion`) VALUES
+(2, 78912345, 1, 'Me ha encantado la estancia, volveria', 0);
 
 --
 -- Restricciones para tablas volcadas
