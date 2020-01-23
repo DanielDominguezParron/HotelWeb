@@ -15,6 +15,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <script type="text/javascript" src="JS/tabla_trabajadores.js"></script>
     <script type="text/javascript" src="JS/tabla_clientes.js"></script>
+    <script type="text/javascript" src="JS/jquery.min.js"></script>
+    <script type="text/javascript" src="JS/Chart.min.js"></script>
     <script type="text/javascript" src="JS/buscar.js"></script>
     <script type="text/javascript" src="JS/agregar.js"></script>
 </head>
