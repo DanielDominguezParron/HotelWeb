@@ -17,8 +17,8 @@ if ($date->num_rows > 0) {
   <meta charset='utf-8' />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-  <link href='packages/core/main.css' rel='stylesheet' />
-  <link href='packages/daygrid/main.css' rel='stylesheet' />
+  <link href='calendar/core/main.css' rel='stylesheet' />
+  <link href='calendar/daygrid/main.css' rel='stylesheet' />
   <?php
   include 'cabecera.php';
   ?>
