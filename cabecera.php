@@ -61,6 +61,9 @@
                 <li>
                     <a href="trabajadores.php">Trabajadores</a>
                 </li>
+                <li>
+                    <a href="graficas.php">Graficas</a>
+                </li>
             </ul>
             <ul class="list-unstyled components ">
                 <li>
