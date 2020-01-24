@@ -22,8 +22,8 @@ if ($date->num_rows > 0) {
   <?php
   include 'cabecera.php';
   ?>
-  <script src='packages/core/main.js'></script>
-  <script src='packages/daygrid/main.js'></script>
+  <script src='calendar/core/main.js'></script>
+  <script src='calendar/daygrid/main.js'></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

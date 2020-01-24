@@ -34,6 +34,7 @@ include 'cabecera.php';
           <label for="exampleInputPassword">Password:</label>
           <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="Introduzca Password de Trabajador" required>
         </div>
+        <button type="submit" class="btn btn-success btn-block">Crear trabajador</button>
       </form>
       <!--End Form-->
     </div>
@@ -43,7 +44,7 @@ include 'cabecera.php';
       <a href="trabajadores.php"><button type="button" class="btn btn-warning btn-block">Volver a trabajadores</button></a>
     </div>
     <div class="col-12 col-md-6 col-xl-3 text text-right">
-      <button type="submit" class="btn btn-success btn-block">Crear trabajador</button>
+     
     </div>
   </div>
 </div>

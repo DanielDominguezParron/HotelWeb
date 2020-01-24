@@ -11,7 +11,7 @@ include 'cabecera.php';
   </div>
   <div class="row" id="nuevoCliente">
     <div class="col-12 col-md-6 col-xl-6 offset-xl-3">
-      <form name="insert-client" action="./respuestaCliente.php" method="POST" id="insert-client">
+      <form name="insert-client" action="respuestaCliente.php" method="POST" id="insert-client">
         <!--Form-->
         <div class="form-group">
           <label for="exampleInputDNI">DNI:</label>
@@ -30,16 +30,14 @@ include 'cabecera.php';
           <label for="exampleInputEmail">Email:</label>
           <input type="text" name="email" class="form-control" id="exampleInputEmail" placeholder="Introduzca Email de Cliente" required>
         </div>
+        <button type="submit" class="btn btn-success btn-block">Crear cliente</button>
         </form>
       <!--End Form-->
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col-12 col-md-6 col-xl-3 offset-xl-3 text text-left">
+    <div class="col-12  col-xl-3 offset-xl-3 text text-left">
       <a href="clientes.php"><button type="button" class="btn btn-warning btn-block">Volver a clientes</button></a>
-    </div>
-    <div class="col-12 col-md-6 col-xl-3 text text-right">
-      <button type="submit" class="btn btn-success btn-block">Crear cliente</button>
     </div>
   </div>
 </div>

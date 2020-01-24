@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 $conn = mysqli_connect("localhost","root","","hotel_erp");
 
-$sqlQuery = "SELECT MONTHNAME(BookingDate) as MES, COUNT(IdReserva) as NumReservas FROM reserva_habitaciones GROUP BY MONTH(BookingDate)";
+$sqlQuery = "SELECT MONTHNAME(BookingDate) as MES, COUNT(IdReserva) as NumReservas FROM reserva_habitaciones GROUP BY MES";
 
 $result = mysqli_query($conn,$sqlQuery);
 
