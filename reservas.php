@@ -41,7 +41,6 @@ include 'bbdd.php';
                             <?php
                             echo "<td class='text text-center'><a href='borrarHabitacionReservas.php?id=" . $id . "'><i class='fa fa-trash' style='font-size: 1.3em; color:red;'></i></a></td>";
                             ?>
-                            </form>
                             </td>
                         </tr>
 
@@ -64,26 +63,34 @@ include 'bbdd.php';
 </div>
 
 <div class="col-12 col-xl-3">
-    <select class="custom-select text text-center" title="Elige un cliente">
-        <option selected disabled>Elige un cliente</option>
-        <?php
+    <form action="#" method="post">
+        <select class="custom-select text text-center" name="client" title="Elige un cliente">
+            <option selected disabled>Elige un cliente</option>
+            <?php
             $consultaCliente = mysqli_query(conecta(), "SELECT DNI FROM clientes");
             $resultset = $consultaCliente or die("error base de datos:" . mysqli_error($conn));
             while ($row = mysqli_fetch_assoc($resultset)) {
                 echo "<option value=" . $row['DNI'] . ">" . $row['DNI'] . "</option> ";
             }
-        ?>
-    </select>
+            ?>
+        </select>
+        <input type="submit"  class="btn btn-danger" name="submit" value="Confirmar cliente" />
+    </form>
 </div>
 
-<?php
+<?php 
+            $selected_val="";
+            if (isset($_POST['submit'])) {
+                $selected_val = $_POST['client'];  // Storing Selected Value In Variable
+                //echo "You have selected :" . $selected_val;  // Displaying Selected Value
+            }
             $habitaciones = implode(",", $arrHabitaciones);
 
 ?>
 <div class=col-12>
-    <form action="carrito.php" method="post">
-        <input type='hidden' name='cliente' id='cliente' value="<?php echo $row['DNI'] ?>"><br>
-        <input type='hidden' name='nombre' id='nombre' value="<?php echo $habitaciones ?>"><br>
+    <form action="guardarReserva.php" method="post">
+        <input type='hidden' name='cliente' id='cliente' value="<?php echo $selected_val ?>"><br>
+        <input type='hidden' name='id' id='id' value="<?php echo $id ?>"><br>
         <input type='hidden' name='cantidad' id='cantidad' value="<?php echo $cantidad ?>"><br>
         <input type='hidden' name='precio' id='precio' value="<?php echo $total ?>"><br>
         <button class="btn btn-success" name="btnReservar" value="Agregar" type="submit">Reservar</button>

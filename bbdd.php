@@ -53,6 +53,20 @@ function modalReserva()
 
     return $result;
 }
+function insertarReserva($id,$cliente,$precio)
+{
+    $con = conecta();
+    $query = "INSERT INTO reservas (IdCliente, IdHabitacion, TotalPrice) VALUES ($cliente, $id, $precio)";
+    if ($con->query($query) === TRUE) {
+        echo "Insertado correctamente";
+    } else {
+        echo "Error: " . $query . "<br>" . $con->error;
+    }
+    
+    $con->close();
+  
+
+}
 function recogerReservas()
 {
     $con = conecta();
@@ -100,4 +114,3 @@ function recogerHabitacionesReservadas()
 
     return $result;
 }
-?>
