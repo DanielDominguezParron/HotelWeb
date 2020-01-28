@@ -19,7 +19,7 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Email</th>
-                    <th class="tabledit-toolbar-column"> Acciones</th>
+                    <th> Acciones</th>
                 </tr>
             </thead>
 

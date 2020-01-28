@@ -90,4 +90,14 @@ function recogerResenas()
 
     return $result;
 }
+
+function recogerHabitacionesReservadas()
+{
+    $con = conecta();
+    $query = "SELECT * FROM reservas JOIN reserva_habitaciones ON reservas.IdReserva=reserva_habitaciones.IdReserva";
+
+    $result = $con->query($query);
+
+    return $result;
+}
 ?>

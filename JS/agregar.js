@@ -1,4 +1,4 @@
-function mostrarModal(title, price, id) {
+function showModal(title, price, id) {
     var txtPrice = "$" + price + " €";
     var href = "modal_reservar.php?action=addToCart&id=" + id;
     document.getElementById("modalTitle").innerHTML = title;

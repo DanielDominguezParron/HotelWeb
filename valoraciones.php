@@ -16,8 +16,8 @@ $consultaValoracion = recogerResenas();
                     <th>Id Valoracion</th>
                     <th>DNI de cliente</th>
                     <th>Id Reserva</th>
-                    <th>Descripcion</th>
-                    <th>Opinion</th>
+                    <th>Descripción</th>
+                    <th>Opinión</th>
                 </tr>
             </thead>
             <tbody>

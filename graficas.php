@@ -1,6 +1,9 @@
 <?php 
 include 'cabecera.php';
 ?>
+<div class="col-12 mt-5 mb-2 text text-center">
+<h3>Estadisticas de Reservas al mes</h3>
+</div>
     <div id="chart-container" class="vertical-center">
         <canvas id="graphCanvas" ></canvas>
     </div>

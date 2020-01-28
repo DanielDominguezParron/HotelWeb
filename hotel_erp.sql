@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-01-2020 a las 21:06:10
+-- Tiempo de generación: 28-01-2020 a las 12:10:31
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -60,7 +60,7 @@ DROP TABLE IF EXISTS `habitaciones`;
 CREATE TABLE IF NOT EXISTS `habitaciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `planta` set('1','2','3','4') COLLATE utf8_spanish_ci NOT NULL,
+  `floor` set('1','2','3','4') COLLATE utf8_spanish_ci NOT NULL,
   `number` int(3) NOT NULL,
   `price` double NOT NULL,
   `description` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `habitaciones` (
 -- Volcado de datos para la tabla `habitaciones`
 --
 
-INSERT INTO `habitaciones` (`id`, `name`, `planta`, `number`, `price`, `description`, `photo`, `status`) VALUES
+INSERT INTO `habitaciones` (`id`, `name`, `floor`, `number`, `price`, `description`, `photo`, `status`) VALUES
 (1, 'Suite Madera', '1', 100, 300, 'Best room ever', '.\\IMG\\madera.jpg', 1),
 (2, 'Olympo', '2', 201, 400, 'puti', '.\\IMG\\suiteimperial.jpg', 0),
 (3, 'Olympo', '3', 321, 200, 'La habitación presenta una decoración elegante en tonos suaves. Disponen de aire acondicionado, minibar, caja fuerte, TV de pantalla plana vía satélite y WiFi gratuita.', '.\\IMG\\suite.jpg', 0),
@@ -98,14 +98,15 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   PRIMARY KEY (`IdReserva`),
   KEY `IdHabitacion` (`IdHabitacion`),
   KEY `IdCliente` (`IdCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `reservas`
 --
 
 INSERT INTO `reservas` (`IdReserva`, `IdCliente`, `IdHabitacion`, `TotalPrice`) VALUES
-(1, '78912345y', 1, 300);
+(1, '78912345y', 1, 300),
+(2, '98765432u', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -128,7 +129,8 @@ CREATE TABLE IF NOT EXISTS `reserva_habitaciones` (
 --
 
 INSERT INTO `reserva_habitaciones` (`BookingDate`, `LeavingDate`, `IdReserva`, `IdHabitacion`) VALUES
-('2020-01-10', '2020-01-14', 1, 1);
+('2020-01-10', '2020-01-14', 1, 1),
+('2020-01-22', '2020-01-31', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -171,20 +173,21 @@ INSERT INTO `trabajadores` (`name`, `surname`, `mail`, `password`, `DNI`) VALUES
 DROP TABLE IF EXISTS `valoraciones`;
 CREATE TABLE IF NOT EXISTS `valoraciones` (
   `IdValoracion` int(11) NOT NULL AUTO_INCREMENT,
-  `IdCliente` int(11) NOT NULL,
+  `IdCliente` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
   `IdReserva` int(11) NOT NULL,
   `Description` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `Opinion` tinyint(1) NOT NULL,
   PRIMARY KEY (`IdValoracion`),
   KEY `IdReserva` (`IdReserva`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `valoraciones`
 --
 
 INSERT INTO `valoraciones` (`IdValoracion`, `IdCliente`, `IdReserva`, `Description`, `Opinion`) VALUES
-(2, 78912345, 1, 'Me ha encantado la estancia, volveria', 0);
+(2, '78912345', 1, 'Me ha encantado la estancia, volveria', 0),
+(3, '98765432u', 2, 'Excelente recibimiento pero la habitación tiene desperfectos', 1);
 
 --
 -- Restricciones para tablas volcadas

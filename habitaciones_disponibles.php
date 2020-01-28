@@ -32,7 +32,7 @@ include 'cabecera.php';
 
                 $id = $row['id'];
                 $nombre = $row['name'];
-                $planta = $row['planta'];
+                $planta = $row['floor'];
                 $precio = $row['price'];
                 $descr = $row['description'];
                 $img = $row['photo'];
@@ -57,8 +57,8 @@ include 'cabecera.php';
                             <input type='hidden' name='cantidad' id='cantidad' value='1'>
                             
                         </form>-->
-                        <button class='btn btn-primary mt-2 mb-2' name='btnAccion' value='Agregar' data-toggle="modal" data-target="#modal_reserva" onclick="mostrarModal('<?php echo $nombre; ?>', '<?php echo $precio ?>', '<?php echo $id ?>')" type='submit'>Reservar habitacion</button>
-                        <a href='./producto.php?id=<?php echo $id ?>' class='btn btn-warning'>Ver Mas</a>
+                        <button class='btn btn-primary mt-2 mb-2' name='btnAccion' value='Agregar' data-toggle="modal" data-target="#modal_reserva" onclick="showModal('<?php echo $nombre; ?>', '<?php echo $precio ?>', '<?php echo $id ?>')" type='submit'>Reservar habitacion</button>
+                        <a href='./producto.php?id=<?php echo $id ?>' class='btn btn-warning'>Más información</a>
                     </div>
                 </div>
         <?php  }
@@ -81,8 +81,8 @@ include 'cabecera.php';
             <div style="margin: auto;" class="modal-body">
                 <!-- body del modal -->
                 <!-- Contenido generado en js -->
-                <img id="modalImg" width="200px" src='IMG/logo.png' alt="imgModal">
-                <h5 class="text text-center" id="modalTitle">Título</h5>
+                <img id="modalImg" width="200px" src='Login/images/bg-01.jpg' style="border-radius: 1em;" alt="imgModal">
+                <h5 class="text text-center mt-1" id="modalTitle">Título</h5>
                 <p id="modalPrice" style="text-align:right;">0,00 €</p>
             </div>
             <div class="modal-footer">

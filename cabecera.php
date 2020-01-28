@@ -51,17 +51,16 @@
                     <a href="habitaciones_reservadas.php">Habitaciones Reservadas</a>
                 </li>
                 <li>
-                    <a href="reservas.php">Reservas</a>
-                </li>
-                <li>
                     <a href="habitaciones_disponibles.php">Habitaciones Disponibles</a>
                 </li>
-
+                <li>
+                    <a href="reservas.php">Multiples Reservas</a>
+                </li>
                 <li>
                     <a href="valoraciones.php">Valoraciones de Clientes</a>
                 </li>
                 <li>
-                    <a href="graficas.php">Graficas</a>
+                    <a href="graficas.php">Estadisticas/Graficas</a>
                 </li>
                 <li>
                     <a href="trabajadores.php">Trabajadores (Administración)</a>
