@@ -1,6 +1,7 @@
 <?php
 include 'carrito.php';
 include 'cabecera.php';
+include 'bbdd.php';
 ?>
 
 <h3 class="text text-center mt-5 mb-4">Lista de habitaciones para reservadas</h3>
@@ -59,13 +60,13 @@ include 'cabecera.php';
                 </tbody>
             </table>
 </div>
+
 <div class="col-12 col-xl-3">
     <select class="custom-select text text-center" title="Elige un cliente">
         <option selected disabled>Elige un cliente</option>
         <?php
             $consultaCliente = mysqli_query(conecta(), "SELECT DNI FROM clientes");
             $resultset = $consultaCliente or die("error base de datos:" . mysqli_error($conn));
-            print($resultset);
             while ($row = mysqli_fetch_assoc($resultset)) {
                 echo "<option>" . $row['DNI'] . "</option> ";
             }
