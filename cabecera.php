@@ -38,7 +38,7 @@
                 if (isset($_SESSION["nombre"])) {
                     print "<p>Bienvenido, " . strtoupper($_SESSION['nombre']) . "</p>";
                 } else {
-                    print "<p>NO LOGIN </p>";
+                    print "<p>ERROR IN LOGIN </p>";
                 }
                 ?>
                 <li>
@@ -61,10 +61,10 @@
                     <a href="valoraciones.php">Valoraciones de Clientes</a>
                 </li>
                 <li>
-                    <a href="trabajadores.php">Trabajadores</a>
+                    <a href="graficas.php">Graficas</a>
                 </li>
                 <li>
-                    <a href="graficas.php">Graficas</a>
+                    <a href="trabajadores.php">Trabajadores (Administración)</a>
                 </li>
             </ul>
             <ul class="list-unstyled components ">

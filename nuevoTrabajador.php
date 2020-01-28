@@ -44,7 +44,7 @@ include 'cabecera.php';
       <a href="trabajadores.php"><button type="button" class="btn btn-warning btn-block">Volver a trabajadores</button></a>
     </div>
     <div class="col-12 col-md-6 col-xl-3 text text-right">
-     
+
     </div>
   </div>
 </div>

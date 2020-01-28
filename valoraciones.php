@@ -28,16 +28,16 @@ $consultaValoracion = recogerResenas();
                 while ($row = mysqli_fetch_assoc($resultset)) {
                     if ($row['Opinion'] == 0) {
                         $opinion = '✔';
-                     }else{
-                         $opinion = '❌';
-                     }
+                    } else {
+                        $opinion = '❌';
+                    }
                     echo "
                         <tr>
                             <td class='text text-center'>" . $row['IdValoracion'] . "</td>
                             <td class='text text-center'>" . $row['IdCliente'] . "</td>
                             <td class='text text-center'>" . $row['IdReserva'] . "</td>
                             <td class='text text-center'>" . $row['Description'] . "</td>
-							<td class='text text-center'>" . $opinion. "</td>
+							<td class='text text-center'>" . $opinion . "</td>
                         </tr>";
                 } ?>
             </tbody>

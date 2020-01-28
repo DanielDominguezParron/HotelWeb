@@ -31,7 +31,7 @@ include 'cabecera.php';
           <input type="text" name="email" class="form-control" id="exampleInputEmail" placeholder="Introduzca Email de Cliente" required>
         </div>
         <button type="submit" class="btn btn-success btn-block">Crear cliente</button>
-        </form>
+      </form>
       <!--End Form-->
     </div>
   </div>

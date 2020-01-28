@@ -33,7 +33,7 @@ if ($datoProd->num_rows > 0) {
       </div>
       <div class="row mt-5">
         <div class="col-12 col-xl-4">
-          <img class="img-rounded" src='<?php echo $img ?>' style="width: 40em; height:30em" alt='<?php echo $nombre ?>'>
+          <img src='<?php echo $img ?>' style="border-radius: 4em; width: 40em; height:30em" alt='<?php echo $nombre ?>'>
         </div>
 
         <div class="offset-4 col-4">
@@ -47,6 +47,9 @@ if ($datoProd->num_rows > 0) {
 
         <div class="col-3 offset-8">
           <h3 class="text text-center" style="border-radius: 2em;background-color:#14ff12; color:light-green;"><?php echo "TOTAL: " . $precio . "€" ?></h3>
+        </div>
+        <div class="col-3 offset-8">
+        <button type="submit" class="btn btn-success btn-lg btn-block">Reservar</button>
         </div>
 
     <?php
