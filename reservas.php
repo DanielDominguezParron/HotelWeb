@@ -10,11 +10,11 @@ include 'bbdd.php';
     if (isset($_SESSION['carrito'])) {
         if ($_SESSION['carrito'] != null) { ?>
 
-            <table class="table table-light table-bordered">
+            <table class="table-hover table table-striped table-responsive-md btn-table">
                 <tbody>
                     <tr>
-                        <th width="40%" class="text-center">Id de Reserva</th>
-                        <th width="15%" class="text-center">Habitacion</th>
+                        <th width="10%" class="text-center">Id de Reserva</th>
+                        <th width="40%" class="text-center">Habitacion</th>
                         <th width="20%" class="text-center">Precio por habitación</th>
                         <th width="20%" class="text-center">Cantidad</th>
                         <th width="20%" class="text-center">Total</th>
@@ -30,15 +30,16 @@ include 'bbdd.php';
                             <?php
                             $arrHabitaciones[] = $reserva['nombre'];
                             $count++;
+                            $id = $count;
                             ?>
 
-                            <td width="40%" class="text-center"><?php echo $count ?></td>
-                            <td width="40%" class="text-center"><?php echo $reserva['nombre'] ?></td>
-                            <td width="20%" class="text-center"><?php echo $reserva['precio'] ?></td>
-                            <td width="20%" class="text-center"><?php echo $reserva['cantidad'] ?></td>
-                            <td width="20%" class="text-center"><?php echo number_format($reserva['precio'] * $reserva['cantidad'], 2) ?></td>
+                            <td width="5%" class="text-center"><?php echo $id ?></td>
+                            <td class="text-center"><?php echo $reserva['nombre'] ?></td>
+                            <td class="text-center"><?php echo $reserva['precio'] ?>€ </td>
+                            <td class="text-center"><?php echo $reserva['cantidad'] ?></td>
+                            <td class="text-center"><?php echo number_format($reserva['precio'] * $reserva['cantidad'], 2) ?>€</td>
                             <?php
-                            echo "<td class='text text-center' ><a href='borrarHabitacionReservas.php?id=" . $count . "'><i class='fa fa-trash' style='font-size: 1.3em; color:red;'></i></a></td>";
+                            echo "<td class='text text-center'><a href='borrarHabitacionReservas.php?id=" . $id . "'><i class='fa fa-trash' style='font-size: 1.3em; color:red;'></i></a></td>";
                             ?>
                             </form>
                             </td>
@@ -55,7 +56,7 @@ include 'bbdd.php';
                             <h3>Total:</h3>
                         </td>
                         <td class="text text-right">
-                            <h3>$<?php echo number_format($total, 2) ?></h3>
+                            <h3><?php echo number_format($total, 2) ?>€</h3>
                         </td>
                     </tr>
                 </tbody>

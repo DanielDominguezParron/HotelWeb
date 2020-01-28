@@ -7,10 +7,10 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
     <div class="col-12">
         <h3 class="text text-center mt-5 mb-4">Lista de clientes</h3>
     </div>
-    <div class="col-xl-12 text text-right">
-        <a href='./nuevoCliente.php' class='btn btn-success'>Nuevo Cliente</a>
-    </div>
-    <div class="table-responsive">
+
+
+
+    <div class="table-responsive table-editable" id="table">
         <table id="datos_clientes" class="table table-bordered table-hover">
             <thead>
                 <tr class="text text-center">
@@ -19,7 +19,7 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Email</th>
-                    <th> Acciones</th>
+                    <th> <a href='./nuevoCliente.php' class='btn btn-success btn-block'>Nuevo Cliente</a></th>
                 </tr>
             </thead>
 
@@ -31,12 +31,12 @@ $consultaCliente = mysqli_query(conecta(), "SELECT * FROM clientes");
                     echo "
                         <tr>
                         <td class='text text-center'>" . $row['DNI'] . "</td>
-                        <td contenteditable='true' class='text text-center'>" . $row['name'] . "</td>
+                        <td contenteditable='true' class='pt-3-half text text-center'>" . $row['name'] . "</td>
                         <td contenteditable='true' class='text text-center'>" . $row['surname'] . "</td>
                         <td contenteditable='true' class='text text-center'>" . $row['mail'] . "</td>
                         <td class='text text-center'>
               <span class='table-remove'><button type='button'
-                  class='btn btn-danger btn-rounded btn-sm my-0'>Eliminar</button></span>
+                  class='btn btn-danger btn-rounded btn-block btn-sm my-0'>Eliminar</button></span>
             </td>
                         </tr>";
                 } ?>

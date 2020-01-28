@@ -1,19 +1,19 @@
 <?php
 $mensaje="";
 
-if (isset($_POST['btnAccion'])){
-    $accion =$_POST['btnAccion'];
+if (isset($_POST['btnReservar'])){
+    $accion =$_POST['btnReservar'];
    
     switch ($accion) {
         case 'Agregar':
-        if (is_numeric($_POST['id'])) {
+       /* if (is_string($_POST['id'])) {
         $ID = $_POST['id'];
         $mensaje.="Ok Id correcto".$ID."<br/>";
         }
         else{
             $mensaje.="Id incorrecto".$ID."<br/>";
             break;
-        }
+        }*/
         if (is_string($_POST['nombre'])) {
             $Nombre = $_POST['nombre'];
             $mensaje.="Ok nombre correcto".$Nombre."<br/>";
@@ -40,7 +40,7 @@ if (isset($_POST['btnAccion'])){
         }
         if (!isset($_SESSION['Carrito'])) {
             $producto = array(
-                'id' => $ID,
+                //'id' => $ID,
                 'Nombre' => $Nombre,
                 'Cantidad' => $Cantidad,
                 'Precio' => $Precio
@@ -68,25 +68,12 @@ if (isset($_POST['btnAccion'])){
                 'Cantidad' => $Cantidad,
                 'Precio' => $Precio
             );
+
             $_SESSION['Carrito'][$NumeroProductos] = $producto;
             $mensaje = "Habitacion reservada correctamente";
         }
         }
     // $mensaje=print_r($_SESSION,true);
 
-            break;
-        case "Eliminar":
-       
-            if (is_numeric($_POST['id'])) {
-                $ID = $_POST['id'];
-                foreach ($_SESSION['Carrito'] as $indice=>$producto) {
-                    if ($producto['id'] == $ID) {
-                        unset($_SESSION['Carrito'][$indice]);
-                    }
-                }
-            } else {
-                $mensaje .= "Id incorrecto" . $ID . "<br/>";
-            }
-            break;
 }
 }
