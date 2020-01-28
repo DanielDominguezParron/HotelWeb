@@ -67,3 +67,12 @@ ul ul a {
     padding-left: 30px !important;
     background: #6d7fcc;
 }
+#productoimage{
+        border:0.125em solid #fff;
+        -moz-box-shadow: 0.625em 0.625em 0.3125em #ccc;
+        -webkit-box-shadow: 0.625em 0.625em 0.3125em #ccc;
+        box-shadow: 0.625em 0.625em 0.3125em #ccc;
+        -moz-border-radius:1.5625em;
+        -webkit-border-radius:1.5625em;
+        border-radius:1.5625em;
+}

@@ -86,7 +86,7 @@
 		if (isset($arrErrores[$claveError])) {
 	?>
 			<script>
-				alertify.alert('HOTELUX   ERROR', "<?php echo $arrErrores[$claveError]; ?>");
+				alertify.alert('HOTELUX', "<?php echo $arrErrores[$claveError]; ?>");
 			</script>
 		<?php } else {
 		?>
