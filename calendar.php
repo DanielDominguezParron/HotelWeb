@@ -9,58 +9,69 @@ if ($date->num_rows > 0) {
   echo ("Ha petado");
 }
 ?>
+<!-- Latest compiled and minified CSS -->
 
-<!DOCTYPE html>
-<html lang='en'>
 
-<head>
-  <meta charset='utf-8' />
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-  <link href='calendar/core/main.css' rel='stylesheet' />
-  <link href='calendar/daygrid/main.css' rel='stylesheet' />
-  <?php
-  include 'cabecera.php';
-  ?>
-  <script src='calendar/core/main.js'></script>
-  <script src='calendar/daygrid/main.js'></script>
+<?php
+include 'cabecera.php';
+?>
+<link href='calendar/core/main.css' rel='stylesheet' />
+<link href='calendar/daygrid/main.css' rel='stylesheet' />
+<link href='calendar/bootstrap/main.css' rel='stylesheet' />
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
+<script src='calendar/core/main.js'></script>
+<script src='calendar/daygrid/main.js'></script>
+<script src='calendar/bootstrap/main.js'></script>
+<script src='calendar/core/locales/es.js'></script>
 
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ['interaction', 'dayGrid', 'timeGrid'],
-        defaultView: 'dayGridMonth',
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
 
-        defaultDate: <?php echo "'$booking'"; ?>,
-        header: {
-          left: 'prev,next',
-          center: 'title',
-          right: 'timeGridWeek,timeGridDay'
-        },
-        events: [<?php
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: ['interaction', 'dayGrid', 'timeGrid'],
+      themeSystem: 'standard',
+      defaultView: 'dayGridMonth',
+      showNonCurrentDates: false,
+      locale: "es",
+      titleFormat: {
+        year: 'numeric',
+        month: 'long'
+      },
+      defaultDate: <?php echo "'$booking'"; ?>,
+      header: {
+        left: 'prev,next',
+        prev: 'fa-chevron-left',
+        next: 'fa-chevron-right',
+        center: 'title',
+        right: 'today,timeGridWeek,timeGridDay'
+      },
+      events: [<?php
 
-                  $reservas = recogerReservas();
-                  if ($reservas->num_rows > 0) {
-                    while ($row = $reservas->fetch_assoc()) {
-                      $LeavingDate = $row['LeavingDate'];
-                      $BookingDate = $row['BookingDate'];
-                      $IdCliente = $row['IdCliente'];
-                      $IdHabitacion = $row['IdHabitacion'];
-                      $booking = strval($LeavingDate);
-                      $leave = strval($BookingDate);
-                      echo "{title: 'Cliente:$IdCliente  habitacion:$IdHabitacion',start: '$booking',end: '$leave'},";
-                    }
-                  } else {
-                    echo ("Ha petado");
+                $reservas = recogerReservas();
+                if ($reservas->num_rows > 0) {
+                  while ($row = $reservas->fetch_assoc()) {
+                    $LeavingDate = $row['LeavingDate'];
+                    $BookingDate = $row['BookingDate'];
+                    $IdCliente = $row['IdCliente'];
+                    $IdHabitacion = $row['IdHabitacion'];
+                    $booking = strval($LeavingDate);
+                    $leave = strval($BookingDate);
+                    echo "{title: 'Cliente:$IdCliente  habitacion:$IdHabitacion',start: '$booking',end: '$leave'},";
                   }
-                  ?>]
-      });
+                } else {
+                  echo ("Ha petado");
+                }
+                ?>],
+      eventColor: 'green',
+      eventBackgroundColor: '#7386D5',
+      eventBorderColor: '#7386D5',
 
-      calendar.render();
     });
-  </script>
+
+    calendar.render();
+  });
+</script>
 </head>
 
 
