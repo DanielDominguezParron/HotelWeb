@@ -57,7 +57,7 @@ include 'cabecera.php';
                     $IdHabitacion = $row['IdHabitacion'];
                     $booking = strval($LeavingDate);
                     $leave = strval($BookingDate);
-                    echo "{title: 'Cliente:$IdCliente  habitacion:$IdHabitacion',start: '$booking',end: '$leave'},";
+                    echo "{title: 'DNI:$IdCliente Hbtcn:$IdHabitacion',start: '$booking',end: '$leave'},";
                   }
                 } else {
                   echo ("Ha petado");
