@@ -6,7 +6,7 @@ $consultaReservas = recogerHabitacionesReservadas();
 
 <div class="row">
     <div class="col-12">
-        <h3 class="text text-center mt-5 mb-4">Valoraciones de Clientes</h3>
+        <h3 class="text text-center mt-5 mb-4">Habitaciones reservadas</h3>
     </div>
     <div class="table-responsive">
         <table id="datos_valoraciones" class="table table-bordered table-hover">
